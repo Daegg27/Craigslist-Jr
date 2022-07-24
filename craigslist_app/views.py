@@ -63,7 +63,6 @@ def view_category_posts(request, id):
         add_post = model_to_dict(posts)
         all_posts.append(add_post)
 
-    print(all_posts)
 
     my_data = {
         'posts': all_posts,
@@ -111,5 +110,18 @@ def view_posts(request):
         
         
         return JsonResponse({'success': True})
+
+def view_post(request, category_id, post_id):
+    
+
+    category = Category.objects.get(id = category_id)
+    post = Post.objects.get(id = post_id)
+
+    my_data = {
+        'category': category,
+        'post': post
+    }
+
+    return render(request, 'view_post.html', my_data)
 
 

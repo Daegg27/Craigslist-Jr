@@ -4,7 +4,7 @@
 {% block content %}
 <hr>
 {% for post in posts %}
-<h1>{{post.title}} ({{post.location}})</h1>
+<h1><a href="/categories/{{id}}/posts/{{post.id}}/view">{{post.id}}</a>. {{post.title}} ({{post.location}})</h1>
 <div class="py-1"></div>
 <h4>• {{post.description}}</h4>
 <hr>
