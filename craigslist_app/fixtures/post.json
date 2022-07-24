@@ -1,0 +1,42 @@
+[
+    {
+        "model": "craigslist_app.post",
+        "pk": 1,
+        "fields": {
+            "category_id": 2,
+            "title": "Looking to play Ultimate Frisbee",
+            "description": "Trying to get a group together on Sunday to play",
+            "location": "Phoenix"
+        }
+    },
+    {
+        "model": "craigslist_app.post",
+        "pk": 2,
+        "fields": {
+            "category_id": 3,
+            "title": "Looking for somebody to come and jump start my car",
+            "description": "Currently stuck without battery power",
+            "location": "Spokane"
+        }
+    },
+    {
+        "model": "craigslist_app.post",
+        "pk": 3,
+        "fields": {
+            "category_id": 4,
+            "title": "Looking to play an online match in Madden 19",
+            "description": "Low player count having trouble finding a match",
+            "location": "Online"
+        }
+    },
+    {
+        "model": "craigslist_app.post",
+        "pk": 4,
+        "fields": {
+            "category_id": 1,
+            "title": "Trying to a venue that I would be able to host my son's graduation party",
+            "description": "References work as well",
+            "location": "Ann Arbor"
+        }
+    }
+]

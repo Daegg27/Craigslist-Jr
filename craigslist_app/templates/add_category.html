@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block head-content %}
+{% load static %}
+    <script src="{% static 'js/addCategory.js' %}" defer></script> 
+{% endblock %}
+{% block content %}
+<div class="py-2"></div>
+<h1>What is the name of the category you'd like to add!</h1>
+<form onsubmit="grabName(event)">
+    <input placeholder="Enter the name" id="new-input" type="text"><br>
+    <div class="py-1"></div>
+    <button type="submit">SUBMIT</button>
+</form>
+{% endblock %}
