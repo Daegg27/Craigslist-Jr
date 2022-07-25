@@ -9,7 +9,7 @@
 {% block content %}
 <h4>You are currently editing post number: #{{post.id}} from the {{category.name}} category</h4>
 <div class="py-4"></div>
-<form onsubmit="editPost(event, '{{post.id}}')">
+<form onsubmit="editPost(event, '{{post.id}}', '{{category.id}}')">
     <label for="title">Insert the title of your new post</label><br>
     <input id="title" type="text" value="{{post.title}}"><br>
     <label for="location">What area do you live?</label><br>

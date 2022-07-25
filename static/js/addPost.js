@@ -5,7 +5,7 @@ function createPost(event, id){
     newPost.id = id
 
     for (let i = 0; i < event.target.length - 1; i++){
-        console.log(event.target[i].id, event.target[i].value)
+        
 
         newName = event.target[i].id
         value = event.target[i].value
@@ -15,7 +15,8 @@ function createPost(event, id){
 
     axios.post('/posts/', newPost)
     .then((response => {
-        console.log(response)
+        console.log('yes')
+        window.location.href = `/categories/${id}/view`
     }
     ))
 

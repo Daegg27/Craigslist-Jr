@@ -8,6 +8,6 @@ function changeName(event, id){
     axios.put(`/categories/${id}`, {
         name: value
     }).then((response =>{
-        console.log(response)
+        window.location.href = '/'
     }))
 }

@@ -1,10 +1,10 @@
-function editPost(event, id){
+function editPost(event, id, category_id){
     event.preventDefault()
 
     let newPost = {}
 
     for (let i = 0; i < event.target.length - 1; i++){
-        console.log(event.target[i].id, event.target[i].value)
+        
 
         newName = event.target[i].id
         value = event.target[i].value
@@ -14,7 +14,7 @@ function editPost(event, id){
 
     axios.put(`/posts/${id}`, newPost)
     .then((response => {
-        console.log(response)
+        window.location.href = `/categories/${category_id}/view`
     }
     ))
 

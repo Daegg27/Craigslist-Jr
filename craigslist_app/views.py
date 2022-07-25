@@ -1,4 +1,5 @@
 from nis import cat
+from pyexpat import model
 from unicodedata import category
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
@@ -22,7 +23,7 @@ def index(request):
 
 def list_categories(request):
     categories = Category.objects.all() 
-    return JsonResponse({'success':True})
+    return JsonResponse(categories) # Obviously not an AJAX response, but I don't understand where I would place the GET AJAX responses, they don't seem to fit anywhere in terms of need???
 
 @csrf_exempt
 def add_category(request):
@@ -58,6 +59,10 @@ def view_category(request, id):
         Category.objects.filter(pk = id).delete()
 
         return JsonResponse({'success': True})
+    elif request.method == 'GET':
+        category = Category.objects.get(id = id)
+
+        return JsonResponse(model_to_dict(category)) # Obviously not an AJAX response, but I don't understand where I would place the GET AJAX responses, they don't seem to fit anywhere in terms of need???
 
 
 def view_category_posts(request, id):
@@ -116,10 +121,26 @@ def view_posts(request):
 
         new_post = Post(category_id = category, title = title, location = location, description = description)
         new_post.save()
-
-        
         
         return JsonResponse({'success': True})
+    elif request.method == "GET":
+
+        if request.GET.get('id'):
+            all_posts = []
+            id = request.GET['id']
+            posts = Post.objects.filter(category_id = id)
+            for post in posts:
+                post = model_to_dict(post)
+                all_posts.append(post)
+            return JsonResponse({'list': all_posts}) # Obviously not an AJAX response, but I don't understand where I would place the GET AJAX responses, they don't seem to fit anywhere in terms of need???
+        else:
+            all_posts = []
+            posts = Post.objects.all()
+            for post in posts:
+                post = model_to_dict(post)
+                all_posts.append(post)
+            return JsonResponse({'list': all_posts}) # Obviously not an AJAX response, but I don't understand where I would place the GET AJAX responses, they don't seem to fit anywhere in terms of need???
+        
 
 def view_post(request, category_id, post_id):
     
@@ -174,6 +195,10 @@ def update_post(request, post_id):
         Post.objects.filter(pk = id).delete()
 
         return JsonResponse({'Success': True})
+    elif request.method == 'GET':
 
+        post = Post.objects.get(id = post_id)
+
+        return JsonResponse(model_to_dict(post)) # Obviously not an AJAX response, but I don't understand where I would place the GET AJAX responses, they don't seem to fit anywhere in terms of need???
 
 
