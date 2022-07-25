@@ -6,10 +6,8 @@ function grabName(event){
    axios.post('/categories/new', {
     name: input
    }).then((response => {
-    console.log(response)
+    window.location.href = '/'
    }
    )
    )
-
-   document.getElementById('new-input').value = ''
 }
