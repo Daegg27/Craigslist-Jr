@@ -1,5 +1,11 @@
 {% extends 'layout.html' %}
 
+{% block head-content %}
+{% load static %}
+    <script src="{% static 'js/getAjax.js' %}" defer></script> 
+{% endblock %}
+
+
 
 {% block content %}
 <h5>You are currently viewing post #{{post.id}} from the {{category.name}} category</h5>
@@ -8,4 +14,6 @@
 <h4>• {{post.description}}</h4>
 <button><a href="/categories/{{category.id}}/view">BACK</a></button>
 <button><a href="/categories/{{category.id}}/posts/{{post.id}}/edit">EDIT</a></button>
+<hr>
+<button onclick="showOnePost('{{post.id}}')">/posts/id</button>
 {% endblock %}

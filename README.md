@@ -41,15 +41,15 @@ These URLs are intended to be readable by humans.
 
 The following routes should return JSON data when the client sends an AJAX request.
 These URLs are intended to conform to RESTful conventions. We'll learn more about RESTful API design later. 
-- `GET /categories` : returns a list of all categories. ----DONE------- (Not AJAX)
+- `GET /categories` : returns a list of all categories. ----DONE------- 
 - `GET /categories/<int:category_id>` : returns details about a single category. ----DONE----- (Not AJAX)
 - `POST /categories` : Creates a new category. The request body should specify the name of the new category. ----DONE-------
 - `PUT /categories/<int:category_id>` : Updates a category. The request body should specify the new name of the category. ----DONE------+
 
 - `DELETE /categories/<int:category_id>` : Deletes a category. ----DONE----
 
-- `GET /posts` : Returns a list of all posts. If the user specifies a category_id in the query string, only return posts from that category. ---DONE--- (Not AJAX)
-- `GET /posts/<int:post_id>` : Returns details about this specific post. ----DONE---- (Not AJAX)
+- `GET /posts` : Returns a list of all posts. If the user specifies a category_id in the query string, only return posts from that category. ---DONE--- 
+- `GET /posts/<int:post_id>` : Returns details about this specific post. ----DONE---- 
 - `POST /posts` : Creates a new post. The request body should specify the title and content of this post. ----DONE-----
 - `PUT /posts/<int:post_id>` : Updates a post. The request body should specify the new title and content of the post. ----DONE----
 - `DELETE /posts/<int:post_id>` : Deletes a post. ----DONE-----

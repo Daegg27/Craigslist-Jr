@@ -1,5 +1,12 @@
 {% extends 'layout.html' %}
 
+{% block head-content %}
+{% load static %}
+    <script src="{% static 'js/getAjax.js' %}" defer></script> 
+{% endblock %}
+
+
+
 
 {% block content %}
 <div class="py-2"></div>
@@ -8,4 +15,7 @@
         <h2><a href="/categories/{{category.id}}/view">{{category.name}}</a></h2>
     {% endfor %}
 <Button><a href="/categories/new">New Category</a></Button>
+<hr>
+<button onclick="showCategories()">/categories</button>
+<button onclick="showPosts()">/posts</button>
 {% endblock %}
