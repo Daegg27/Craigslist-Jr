@@ -37,7 +37,7 @@ These URLs are intended to be readable by humans.
 - `GET /categories/<int:category_id>/edit`: A page with a form to update a specific category, with current values filled in already. Also include the ability to delete the specific category from this page. -----DONE----
 - `GET /categories/<int:category_id>/posts/new`: A page with a form to create a new post for this category. ----DONE-----
 - `GET /categories/<int:category_id>/posts/<int:post_id>/view`: A page to view the details of a specific post. Also include the ability go back to the parent category detail page (`/categories/<int:category_id/>/view`). ---_DONE------
-- `GET /categories/<int:category_id>/posts/<int:post_id>/edit`: A page with a form to update a specific post, with the post's current title and content filled in already. Also include the ability to delete the specific post from here.
+- `GET /categories/<int:category_id>/posts/<int:post_id>/edit`: A page with a form to update a specific post, with the post's current title and content filled in already. Also include the ability to delete the specific post from here. ---DONE----
 
 The following routes should return JSON data when the client sends an AJAX request.
 These URLs are intended to conform to RESTful conventions. We'll learn more about RESTful API design later. 
@@ -50,9 +50,9 @@ These URLs are intended to conform to RESTful conventions. We'll learn more abou
 
 - `GET /posts` : Returns a list of all posts. If the user specifies a category_id in the query string, only return posts from that category.
 - `GET /posts/<int:post_id>` : Returns details about this specific post.
-- `POST /posts` : Creates a new post. The request body should specify the title and content of this post.
-- `PUT /posts/<int:post_id>` : Updates a post. The request body should specify the new title and content of the post.
-- `DELETE /posts/<int:post_id>` : Deletes a post. 
+- `POST /posts` : Creates a new post. The request body should specify the title and content of this post. ----DONE-----
+- `PUT /posts/<int:post_id>` : Updates a post. The request body should specify the new title and content of the post. ----DONE----
+- `DELETE /posts/<int:post_id>` : Deletes a post. ----DONE-----
 
 
 

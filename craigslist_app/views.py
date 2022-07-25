@@ -50,13 +50,21 @@ def view_category(request, id):
         
 
         return JsonResponse({'success': True})
+    elif request.method == 'DELETE':
+        body = json.loads(request.body)
 
-    pass
+        id = body['id']
+
+        Category.objects.filter(pk = id).delete()
+
+        return JsonResponse({'success': True})
 
 
 def view_category_posts(request, id):
     
+    
     post = Post.objects.filter(category_id = id)
+    category = Category.objects.get(id = id)
     all_posts = []
 
     for posts in post:
@@ -66,10 +74,12 @@ def view_category_posts(request, id):
 
     my_data = {
         'posts': all_posts,
-        'id': id
+        'id': id,
+        'category': category
     }
 
     return render(request, 'view_category.html', my_data)
+
 
 def edit_category(request, id):
 
@@ -123,5 +133,47 @@ def view_post(request, category_id, post_id):
     }
 
     return render(request, 'view_post.html', my_data)
+
+def edit_post(request, category_id, post_id):
+
+    category = Category.objects.get(id = category_id)
+    post = Post.objects.get(id = post_id)
+
+    my_data = {
+        'category': category,
+        'post': post
+    }
+
+    return render(request, 'edit_post.html', my_data)
+
+@csrf_exempt
+def update_post(request, post_id):
+
+    if request.method == 'PUT':
+        body = json.loads(request.body)
+
+        post = Post.objects.get(id = post_id)
+
+        
+        title = body['title']
+        location = body['location']
+        description = body['description']
+
+        post.title = title
+        post.location = location
+        post.description = description
+
+        post.save()
+
+        return JsonResponse({'success': True})
+    elif request.method == 'DELETE':
+        body = json.loads(request.body)
+
+        id = body['id']
+
+        Post.objects.filter(pk = id).delete()
+
+        return JsonResponse({'Success': True})
+
 
 

@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block head-content %}
+{% load static %}
+    <script src="{% static 'js/updatePost.js' %}" defer></script> 
+{% endblock %}
+
+
+{% block content %}
+<h4>You are currently editing post number: #{{post.id}} from the {{category.name}} category</h4>
+<div class="py-4"></div>
+<form onsubmit="editPost(event, '{{post.id}}')">
+    <label for="title">Insert the title of your new post</label><br>
+    <input id="title" type="text" value="{{post.title}}"><br>
+    <label for="location">What area do you live?</label><br>
+    <input type="text" id="location" value="{{post.location}}"><br>
+    <label for="description">Please add a brief description</label><br>
+    <input type="text" id="description" value="{{post.description}}"><br>
+    <div class="py-1"></div>
+    <Button type="submit">SUBMIT</Button>
+</form>
+<button onclick="deletePost('{{post.id}}', '{{category.id}}')">DELETE</button>
+{% endblock %}

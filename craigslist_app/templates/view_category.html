@@ -1,7 +1,13 @@
 {% extends 'layout.html' %}
 
+{% block head-content %}
+{% load static %}
+    <script src="{% static 'js/deleteCategory.js' %}" defer></script> 
+{% endblock %}
+
 
 {% block content %}
+<h4>This is the {{category.name}} page</h4>
 <hr>
 {% for post in posts %}
 <h1><a href="/categories/{{id}}/posts/{{post.id}}/view">{{post.id}}</a>. {{post.title}} ({{post.location}})</h1>
@@ -11,4 +17,5 @@
 {% endfor %}
 <Button><a href="/categories/{{id}}/edit">EDIT CATEGORY</a></Button>
 <Button><a href="/categories/{{id}}/posts/new">ADD POST</a></Button>
+<Button onclick="goodbyePost('{{category.id}}')">DELETE</Button>
 {% endblock %}

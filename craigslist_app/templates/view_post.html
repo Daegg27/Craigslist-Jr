@@ -3,7 +3,9 @@
 
 {% block content %}
 <h5>You are currently viewing post #{{post.id}} from the {{category.name}} category</h5>
+<div class="py-4"></div>
 <h1>{{post.title}} ({{post.location}})</h1>
-<h4>{{post.description}}</h4>
+<h4>• {{post.description}}</h4>
 <button><a href="/categories/{{category.id}}/view">BACK</a></button>
+<button><a href="/categories/{{category.id}}/posts/{{post.id}}/edit">EDIT</a></button>
 {% endblock %}
